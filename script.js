@@ -73,6 +73,8 @@ function editExpense(button) {
     document.getElementById('value').value = expense.value;
     document.getElementById('currency-from').value = expense.currencyFrom;
     document.getElementById('currency-to').value = expense.currencyTo;
+
+    document.getElementById('submit-button').textContent = 'Alterar';
 }
 
 function deleteExpense(button) {
@@ -127,6 +129,8 @@ function clearForm() {
     document.getElementById('currency-from').value = 'BRL';
     document.getElementById('currency-to').value = 'BRL';
     document.getElementById('expense-id').value = '';
+
+    document.getElementById('submit-button').textContent = 'Adicionar';
 }
 
 function validateForm() {
