@@ -4,7 +4,9 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
 document.getElementById('expense-form').addEventListener('submit', function(e) {
     e.preventDefault();
-
+    if (!validateForm()) {
+        return;
+    }
     const description = document.getElementById('description').value;
     const quantity = parseInt(document.getElementById('quantity').value);
     const value = parseFloat(document.getElementById('value').value);
@@ -121,4 +123,18 @@ function clearForm() {
     document.getElementById('currency-from').value = 'BRL';
     document.getElementById('currency-to').value = 'BRL';
     document.getElementById('expense-id').value = '';
+}
+
+function validateForm() {
+    const description = document.getElementById('description').value;
+    const quantity = document.getElementById('quantity').value;
+    const value = document.getElementById('value').value;
+    const currencyFrom = document.getElementById('currency-from').value;
+    const currencyTo = document.getElementById('currency-to').value;
+
+    if (!description || quantity <= 0 || value <= 0 || !currencyFrom || !currencyTo) {
+        alert("Por favor, preencha todos os campos corretamente.");
+        return false;
+    }
+    return true;
 }

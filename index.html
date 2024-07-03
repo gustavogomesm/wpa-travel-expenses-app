@@ -12,10 +12,10 @@
         <h1>Gestão de Despesas em Viagens</h1>
         <form id="expense-form">
             <input type="hidden" id="expense-id">
-            <input type="text" id="description" placeholder="Descrição do Item">
-            <input type="number" id="quantity" placeholder="Quantidade/Unic">
-            <input type="number" id="value" placeholder="Valor">
-            <select id="currency-from">
+            <input type="text" id="description" placeholder="Descrição do Item" required>
+            <input type="number" id="quantity" placeholder="Quantidade/Unic" min="1" required>
+            <input type="number" id="value" placeholder="Valor" min="0.01" step="0.01" >
+            <select id="currency-from" required>
                 <option value="BRL">BRL</option>
                 <option value="USD">USD</option>
                 <option value="EUR">EUR</option>
