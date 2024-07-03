@@ -47,13 +47,13 @@ function addExpenseToList({ id, description, quantity, value, currencyFrom, conv
     const tr = document.createElement('tr');
     tr.setAttribute('data-id', id);
     tr.innerHTML = `
-        <td>${description}</td>
-        <td>${quantity}</td>
-        <td>${value}</td>
-        <td>${currencyFrom}</td>
-        <td>${convertedValue.toFixed(2)}</td>
-        <td>${currencyTo}</td>
-        <td>
+        <td data-label="Descrição">${description}</td>
+        <td data-label="Quantidade">${quantity}</td>
+        <td data-label="Valor">${value}</td>
+        <td data-label="Moeda Origem">${currencyFrom}</td>
+        <td data-label="Valor Convertido">${convertedValue.toFixed(2)}</td>
+        <td data-label="Moeda Destino">${currencyTo}</td>
+        <td data-label="Ações">
             <button onclick="editExpense(this)">✏️</button>
             <button onclick="deleteExpense(this)">🗑️</button>
         </td>
