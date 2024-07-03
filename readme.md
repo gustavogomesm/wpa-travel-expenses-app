@@ -1,6 +1,6 @@
 # Gestão de Despesas em Viagens
 
-Este projeto é um trabalho acadêmico da Faculdade PUC Minas, desenvolvido para a disciplina  ARQUITETURA PARA APLICAÇÕES MÓVEIS da pós-graduação Arquitetura de Software Distribuido. O projeto foi desenvolvido por Gustavo Gomes Madureira a pedido do Prof. Fernando Manoel Pereira.
+Este projeto é um trabalho acadêmico da PUC Minas, desenvolvido para a disciplina de Arquitetura para Aplicações Móveis da pós-graduação em Arquitetura de Software Distribuído. Foi elaborado por Gustavo Gomes Madureira, sob a orientação do Prof. Fernando Manoel Pereira.
 
 ## Descrição
 
