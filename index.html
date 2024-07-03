@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestão de Despesas em Viagens</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="manifest" href="manifest.json">
+</head>
+<body>
+    <div class="container">
+        <h1>Gestão de Despesas em Viagens</h1>
+        <form id="expense-form">
+            <input type="hidden" id="expense-id">
+            <input type="text" id="description" placeholder="Descrição do Item">
+            <input type="number" id="quantity" placeholder="Quantidade/Unic">
+            <input type="number" id="value" placeholder="Valor">
+            <select id="currency-from">
+                <option value="BRL">BRL</option>
+                <option value="USD">USD</option>
+                <option value="EUR">EUR</option>
+            </select>
+            <select id="currency-to">
+                <option value="BRL">BRL</option>
+                <option value="USD">USD</option>
+                <option value="EUR">EUR</option>
+            </select>
+            <button type="submit">Adicionar</button>
+        </form>
+        <ul id="expense-list"></ul>
+        <footer>
+            <p>Total (Moeda de Origem): <span id="total-origin">0.00</span></p>
+            <p>Total (Moeda de Destino): <span id="total-destination">0.00</span></p>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
