@@ -27,7 +27,21 @@
             </select>
             <button type="submit" id="submit-button">Adicionar</button>
         </form>
-        <ul id="expense-list"></ul>
+        <table id="expense-table">
+            <thead>
+                <tr>
+                    <th>Descrição</th>
+                    <th>Quantidade</th>
+                    <th>Valor</th>
+                    <th>Moeda Origem</th>
+                    <th>Valor Convertido</th>
+                    <th>Moeda Destino</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody id="expense-list">
+            </tbody>
+        </table>
         <footer>
             <p>Total (Moeda de Origem): <span id="total-origin">0.00</span></p>
             <p>Total (Moeda de Destino): <span id="total-destination">0.00</span></p>

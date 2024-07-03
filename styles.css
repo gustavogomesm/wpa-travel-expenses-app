@@ -41,29 +41,22 @@ form button {
     cursor: pointer;
 }
 
-ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-ul li {
-    background-color: #e2e3e5;
-    padding: 10px;
-    margin: 5px 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-footer {
+table {
+    width: 100%;
+    border-collapse: collapse;
     margin-top: 20px;
+}
+
+th, td {
+    padding: 10px;
+    border: 1px solid #ccc;
     text-align: center;
 }
 
-footer p {
-    margin: 5px 0;
+th {
+    background-color: #007bff;
+    color: #fff;
 }
-
 
 .alert-popup {
     position: fixed;

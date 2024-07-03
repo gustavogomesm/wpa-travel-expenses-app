@@ -4,9 +4,12 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
 document.getElementById('expense-form').addEventListener('submit', function(e) {
     e.preventDefault();
+
     if (!validateForm()) {
+        showAlert('Campo não preenchido', 'Por favor, preencha todos os campos corretamente.', false);
         return;
     }
+
     const description = document.getElementById('description').value;
     const quantity = parseInt(document.getElementById('quantity').value);
     const value = parseFloat(document.getElementById('value').value);
@@ -41,12 +44,21 @@ function generateUniqueId() {
 
 function addExpenseToList({ id, description, quantity, value, currencyFrom, convertedValue, currencyTo }) {
     const expenseList = document.getElementById('expense-list');
-    const li = document.createElement('li');
-    li.setAttribute('data-id', id);
-    li.innerHTML = `${description} - ${quantity} x ${value} ${currencyFrom} (${convertedValue.toFixed(2)} ${currencyTo}) 
-                    <span><button onclick="editExpense(this)">✏️</button>
-                    <button onclick="deleteExpense(this)">🗑️</button></span>`;
-    expenseList.appendChild(li);
+    const tr = document.createElement('tr');
+    tr.setAttribute('data-id', id);
+    tr.innerHTML = `
+        <td>${description}</td>
+        <td>${quantity}</td>
+        <td>${value}</td>
+        <td>${currencyFrom}</td>
+        <td>${convertedValue.toFixed(2)}</td>
+        <td>${currencyTo}</td>
+        <td>
+            <button onclick="editExpense(this)">✏️</button>
+            <button onclick="deleteExpense(this)">🗑️</button>
+        </td>
+    `;
+    expenseList.appendChild(tr);
 }
 
 function updateTotal() {
@@ -62,8 +74,8 @@ function updateTotal() {
 }
 
 function editExpense(button) {
-    const li = button.parentElement.parentElement;
-    const id = li.getAttribute('data-id');
+    const tr = button.parentElement.parentElement;
+    const id = tr.getAttribute('data-id');
     const expenses = JSON.parse(localStorage.getItem('expenses')) || [];
     const expense = expenses.find(exp => exp.id === id);
 
@@ -78,11 +90,11 @@ function editExpense(button) {
 }
 
 function deleteExpense(button) {
-    const li = button.parentElement.parentElement;
-    const id = li.getAttribute('data-id');
+    const tr = button.parentElement.parentElement;
+    const id = tr.getAttribute('data-id');
     showAlert('Confirmação', 'Tem certeza que deseja excluir esta despesa?', true, function(result) {
         if (result) {
-            li.remove();
+            tr.remove();
             deleteExpenseFromLocalStorage(id);
             updateTotal();
         }
