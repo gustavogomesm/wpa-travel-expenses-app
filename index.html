@@ -14,7 +14,7 @@
             <input type="hidden" id="expense-id">
             <input type="text" id="description" placeholder="Descrição do Item" required>
             <input type="number" id="quantity" placeholder="Quantidade/Unic" min="1" required>
-            <input type="number" id="value" placeholder="Valor">
+            <input type="number" id="value" placeholder="Valor" min="0.01" step="0.01" required>
             <select id="currency-from" required>
                 <option value="BRL">BRL</option>
                 <option value="USD">USD</option>
@@ -36,8 +36,12 @@
 
     <div id="alert-popup" class="alert-popup hidden">
         <div class="alert-content">
-            <span id="alert-message"></span>
-            <button onclick="closeAlert()">OK</button>
+            <h2 id="alert-title"></h2>
+            <p id="alert-message"></p>
+            <div class="alert-buttons">
+                <button id="alert-cancel" onclick="handleCancel()">Cancelar</button>
+                <button id="alert-ok" onclick="handleOk()">OK</button>
+            </div>
         </div>
     </div>
     

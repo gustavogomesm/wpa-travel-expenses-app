@@ -64,6 +64,7 @@ footer p {
     margin: 5px 0;
 }
 
+
 .alert-popup {
     position: fixed;
     top: 0;
@@ -88,8 +89,13 @@ footer p {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.alert-content button {
+.alert-buttons {
     margin-top: 20px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.alert-buttons button {
     padding: 10px 20px;
     background-color: #007bff;
     color: #fff;

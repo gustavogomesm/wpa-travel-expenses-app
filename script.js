@@ -78,9 +78,13 @@ function editExpense(button) {
 function deleteExpense(button) {
     const li = button.parentElement.parentElement;
     const id = li.getAttribute('data-id');
-    li.remove();
-    deleteExpenseFromLocalStorage(id);
-    updateTotal();
+    showAlert('Confirmação', 'Tem certeza que deseja excluir esta despesa?', true, function(result) {
+        if (result) {
+            li.remove();
+            deleteExpenseFromLocalStorage(id);
+            updateTotal();
+        }
+    });
 }
 
 function saveExpenseToLocalStorage(expense) {
@@ -133,15 +137,33 @@ function validateForm() {
     const currencyTo = document.getElementById('currency-to').value;
 
     if (!description || quantity <= 0 || value <= 0 || !currencyFrom || !currencyTo) {
-        showAlert("Por favor, preencha todos os campos corretamente.");
+        showAlert('Campo não preenchido', 'Por favor, preencha todos os campos corretamente.', false);
         return false;
     }
     return true;
 }
 
-function showAlert(message) {
+function showAlert(title, message, showCancel, callback) {
+    document.getElementById('alert-title').textContent = title;
     document.getElementById('alert-message').textContent = message;
     document.getElementById('alert-popup').classList.remove('hidden');
+
+    const cancelButton = document.getElementById('alert-cancel');
+    if (showCancel) {
+        cancelButton.style.display = 'inline-block';
+        cancelButton.onclick = function() {
+            closeAlert();
+            if (callback) callback(false);
+        };
+    } else {
+        cancelButton.style.display = 'none';
+    }
+
+    const okButton = document.getElementById('alert-ok');
+    okButton.onclick = function() {
+        closeAlert();
+        if (callback) callback(true);
+    };
 }
 
 function closeAlert() {
