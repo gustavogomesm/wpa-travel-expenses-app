@@ -14,7 +14,7 @@
             <input type="hidden" id="expense-id">
             <input type="text" id="description" placeholder="Descrição do Item" required>
             <input type="number" id="quantity" placeholder="Quantidade/Unic" min="1" required>
-            <input type="number" id="value" placeholder="Valor" min="0.01" step="0.01" >
+            <input type="number" id="value" placeholder="Valor">
             <select id="currency-from" required>
                 <option value="BRL">BRL</option>
                 <option value="USD">USD</option>
@@ -33,6 +33,14 @@
             <p>Total (Moeda de Destino): <span id="total-destination">0.00</span></p>
         </footer>
     </div>
+
+    <div id="alert-popup" class="alert-popup hidden">
+        <div class="alert-content">
+            <span id="alert-message"></span>
+            <button onclick="closeAlert()">OK</button>
+        </div>
+    </div>
+    
     <script src="script.js"></script>
 </body>
 </html>

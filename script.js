@@ -133,8 +133,17 @@ function validateForm() {
     const currencyTo = document.getElementById('currency-to').value;
 
     if (!description || quantity <= 0 || value <= 0 || !currencyFrom || !currencyTo) {
-        alert("Por favor, preencha todos os campos corretamente.");
+        showAlert("Por favor, preencha todos os campos corretamente.");
         return false;
     }
     return true;
+}
+
+function showAlert(message) {
+    document.getElementById('alert-message').textContent = message;
+    document.getElementById('alert-popup').classList.remove('hidden');
+}
+
+function closeAlert() {
+    document.getElementById('alert-popup').classList.add('hidden');
 }
